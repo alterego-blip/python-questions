@@ -1,29 +1,15 @@
-'''
-A program to compute electricity bill based on slabs
-units   unit price
-<100    1
-<200    5
-<400    8
-<600    12
->=600   15
-'''
-
-amount = units = 0
 while (True):
-    units = float(input("Enter the number of units consumed (0 to exit) : "))
-
-    if not units: # Like C, non-zero is true and zero/null values are false
-        exit(0)
-    elif units < 100:
-        amount = units * 1
-    elif units < 200:
-        amount = units * 5
-    elif units < 400:
-        amount = units * 8
-    elif units < 600:
-        amount = units * 12
-    else:
-        amount = units * 15
-
-    print("The total amount is :", amount)
-        
+    choice = input("Area of rectangle or triangle ? r / t  (or) 0 to exit : ")
+    match choice:
+        case 'r':
+            l = float(input("Enter the length: "))
+            b = float(input("Enter the breadth: "))
+            print("The area of the rectangle is : ", l * b)
+        case 't':
+            h = float(input("Enter the height of the triangle : "))
+            b = float(input("Enter the breadth of the triangle : "))
+            print("The area of the triangle is : ", h * b * 0.5)
+        case '0':
+            exit(0)
+        case _:
+            print("Invalid option")

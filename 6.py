@@ -1,36 +1,13 @@
 '''
-A menu driven calculator program using switch statement
-switch statements are called match in python
-
-case _: corresponds to default in C programming
-as _ matches all values
-No break statements are required
+A program to calculate roots of a quadratic equation
+b = (-b +- D) / 2a
 '''
 
-print("The calculator program (input 0 0 0 to exit)")
+a, b, c = input("Enter the coefficients of the equation ax^2 + bx + c = 0 as a b c : ").split()
+a, b, c = int(a), int(b), int(c) # Converting str to int
+D = b**2 - 4 * a * c
 
-a = b = operation = result = ''
-while(True):
-    a, operation, b = input("Enter the operation : ").split()
-    a, b = float(a), float(b)
-
-    match operation:
-        case '+':
-            result = a + b
-        case '-':
-            result = a - b
-        case '*':
-            result = a * b
-        case '/':
-            result = a / b
-        case '**':
-            result =  a ** b
-        case '0':
-            print("Bye")
-            exit(0)
-        case _:
-            print("Invalid Operation")
-            continue
-
-    print("The result is ", result)
-
+if not D:
+    print("The roots are equal to ", -b / 2 / a)
+else: # Python supports complex numbers as built in
+    print("The roots are equal to ", (-b + D ** 0.5) / 2 / a, "and", (-b - D ** 0.5) / 2 / a)
